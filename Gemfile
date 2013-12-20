@@ -23,6 +23,14 @@ group :development do
   gem 'meta_request'
 end
 
+group :development, :test do
+  gem "rspec-rails", "~> 2.14.0"
+end
+
+group :test do
+  gem "shoulda-matchers", "~> 2.4.0"
+end
+
 group :doc do
   gem 'sdoc', require: false
 end
