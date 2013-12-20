@@ -1,0 +1,44 @@
+<article class="video_category">
+  <header>
+    <h3><%= link_to "TV Commedies" %></h3>
+  </header>
+  <div class="videos row">
+    <% 6.times do %>
+      <div class="video span2">
+        <%= link_to "", nil do %>
+          <img src="/tmp/<%= ['futurama', 'south_park', 'family_guy'].sample%>.jpg" alt="" />
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</article>
+
+<article class="video_category">
+  <header>
+    <h3><%= link_to "TV Dramas" %></h3>
+  </header>
+  <div class="videos row">
+    <% 6.times do %>
+      <div class="video span2">
+        <%= link_to "", nil do %>
+          <img src="/tmp/<%= ['futurama', 'south_park', 'family_guy'].sample%>.jpg" alt="" />
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</article>
+
+<article class="video_category">
+  <header>
+    <h3><%= link_to "Reality TV" %></h3>
+  </header>
+  <div class="videos row">
+    <% 6.times do %>
+      <div class="video span2">
+        <%= link_to "", nil do %>
+          <img src="/tmp/<%= ['futurama', 'south_park', 'family_guy'].sample%>.jpg" alt="" />
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</article>

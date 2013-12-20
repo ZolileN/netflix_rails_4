@@ -1,0 +1,27 @@
+<section id="top-header" class="row">
+  <h1 class="span2"><%= link_to "Netflix" %></h1>
+  <ul class="span4 clearflix">
+    <li><%= link_to "Videos" %></li>
+    <li><%= link_to "My Queue" %></li>
+    <li><%= link_to "People" %></li>
+  </ul>
+  <form class="span5 for-search" action="">
+    <input class="search-query" type="text" placeholder="Search for videos here">
+    <button class="btn" type="submit">Search</button>
+  </form>
+  <div id="user_links" class="pull-right">
+    <ul>
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-target="#" data-toggle="dropdown" href="#" id="dlabel" role="button">
+          Welcome, Philip J. Fry
+          <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="dlabel">
+          <li><a href="#">Account</a></li>
+          <li><a href="#">Plan and Billing</a></li>
+          <li><a href="#">Sign Out</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</section>

@@ -1,0 +1,22 @@
+<section class="genre">
+  <header class="clearfix">
+    <h1>Comedies</h1>
+    <div class="genre_sorting">
+      Sort by:
+      <select name="" id="">
+        <option value="a-z">Title: A - Z</option>
+        <option value="z-a">Title: Z - A</option>
+        <option value="rating">Rating</option>
+      </select>
+    </div>
+  </header>
+  <article class="row">
+    <% 30.times do %>
+      <div class="video span2">
+        <%= link_to "", nil do %>
+          <img src="/tmp/<%= ['futurama', 'south_park', 'family_guy'].sample%>.jpg" alt="" />
+        <% end %>
+      </div>
+    <% end %>
+  </article>
+</section>

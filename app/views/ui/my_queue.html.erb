@@ -1,0 +1,66 @@
+<section class="my_queue container">
+  <div class="row">
+    <div class="span10 offset1">
+      <article>
+        <header>
+          <h2>My Queue</h2>
+        </header>
+        <table class="table">
+          <thead>
+            <tr>
+              <th width="10%">List Order</th>
+              <th width="30%">Video Title</th>
+              <th width="10%">Play</th>
+              <th width="20%">Rating</th>
+              <th width="15%">Genre</th>
+              <th width="15%">Remove</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><input type="text" value="1" /></td>
+              <td><%= link_to "Futurama" %></td>
+              <td><%= button_to "Play", nil, class: "btn" %></td>
+              <td>
+                <select name="" id="">
+                  <option value="5">5 Stars</option>
+                  <option value="4">4 Stars</option>
+                  <option value="3">3 Stars</option>
+                  <option value="2">2 Stars</option>
+                  <option value="1">1 Star</option>
+                </select>
+              </td>
+              <td><%= link_to "TV Shows" %></td>
+              <td>
+                <%= link_to "", method: :post do %>
+                  <i class="icon-remove"></i>
+                <% end %>
+              </td>
+            </tr>
+            <tr>
+              <td><input type="text" value="2" /></td>
+              <td><%= link_to "Family Guy" %></td>
+              <td><%= button_to "Play", nil, class: "btn" %></td>
+              <td>
+                <select name="" id="">
+                  <option value="5">5 Stars</option>
+                  <option value="4">4 Stars</option>
+                  <option value="3">3 Stars</option>
+                  <option value="2">2 Stars</option>
+                  <option value="1">1 Star</option>
+                </select>
+              </td>
+              <td><%= link_to "TV Shows" %></td>
+              <td>
+                <%= link_to "", method: :post do %>
+                  <i class="icon-remove"></i>
+                <% end %>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <%= button_to "Update Instant Queue", nil, class: "btn" %>
+      </article>
+    </div>
+  </div>
+</section>

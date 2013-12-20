@@ -1,0 +1,54 @@
+<section class="billing container">
+  <div class="row">
+    <div class="span10 offset1">
+      <div class="plan_and_payments">
+        <section class="plan">
+          <header>
+            <h1>Billing</h1>
+          </header>
+          <table class="table">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Next Billing Date</th>
+                <th>Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>The All You Can Watch Plan</td>
+                <td>03/19/2013</td>
+                <td>9.99 per month</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        <%= button_to "Cancel Service", nil, class: "btn" %>
+        
+        <section class="payment_history">
+          <header>
+            <h3>Payment History</h3>
+          </header>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Service Duration</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% 8.times do %>
+              <tr>
+                <td>12/09/2012</td>
+                <td>12/09/2012 - 01/08/2013</td>
+                <td>$9.99</td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </section>
+      </div>
+    </div>
+  </div>
+</section>
