@@ -1,0 +1,12 @@
+<section class="genre">
+  <header class="clearfix">
+    <h1><%= @category.name %></h1>
+  </header>
+  <article class="row">
+    <% @category.videos.each do |video| %>
+      <div class="video span2">
+        <%= link_to image_tag(video.small_cover_url), video %>
+      </div>
+    <% end %>
+  </article>
+</section>
