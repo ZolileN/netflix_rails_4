@@ -1,0 +1,20 @@
+<article class="video">
+  <div class="container">
+    <div class="row">
+      <div class="video_large_cover span7 offset1">
+        <img src="<%= @video.large_cover_url.blank? ? "http://dummyimage.com/665x375/000000/00a2ff" : @video.large_cover_url %>" />
+      </div>
+      <div class="video_info span3">
+        <header>
+          <h3><%= @video.title %></h3>
+          <span>Rating: 4.5/5.0</span>
+        </header>
+        <p><%= @video.description %></p>
+        <div class="actions">
+          <a href="" class="btn btn-primary">Watch Now</a>
+          <a href="" class="btn">+ My Queue</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
