@@ -1,0 +1,20 @@
+<section class="sign_in container">
+  <div class="row">
+    <div class="span10 offset1">
+      <%= form_tag sessions_path do %>
+        <header>
+          <h1>Sign in</h1>
+        </header>
+        <fieldset>
+          <%= label_tag :email, "Email Address" %>
+          <%= email_field_tag :email %>
+          <%= label_tag :password %>
+          <%= password_field_tag :password %>
+        </fieldset>
+        <fieldset class="action">
+          <%= submit_tag "Sign in", class: "btn" %>
+        </fieldset>
+      <% end %>
+    </div>
+  </div>
+</section>
