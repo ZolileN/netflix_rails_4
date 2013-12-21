@@ -18,3 +18,31 @@
     </div>
   </div>
 </article>
+
+<section class="reviews container">
+  <div class="row">
+    <div class="span10 offset1">
+      <header>
+        <h3>User Reviews (<%= @video.reviews.count %>)</h3>
+      </header>
+      <ul>
+        <% @video.reviews.each do |review| %>
+          <article class="review">
+            <li class="row">
+              <div class="span2">
+                Rating: <%= review.rating %> / 5
+                <p>
+                  by
+                  <%= link_to review.user.full_name, "#" %>
+                </p>
+              </div>
+              <div class="span8">
+                <p><%= review.content %></p>
+              </div>
+            </li>
+          </article>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</section>
