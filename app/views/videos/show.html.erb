@@ -22,6 +22,16 @@
 <section class="reviews container">
   <div class="row">
     <div class="span10 offset1">
+      <%= bootstrap_form_for [@video, Review.new] do |f| %>
+        <fieldset>
+          <%= f.select :rating, options_for_video_reviews, label: "Rate this video" %>
+          <%= f.text_area :content, label: "Write Review", rows: "6", class: "span6" %>
+        </fieldset>
+        <fieldset class="actions clearfix">
+          <%= f.submit "Submit", class: "btn" %>
+          <%= link_to "Cancel", @video %>
+        </fieldset>
+      <% end %>
       <header>
         <h3>User Reviews (<%= @video.reviews.count %>)</h3>
       </header>

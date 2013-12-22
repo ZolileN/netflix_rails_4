@@ -7,6 +7,7 @@ Netflix::Application.routes.draw do
   resources :categories, only: [:show]
   resources :videos, only: [:show] do
     post :search, on: :collection
+    resources :reviews, only: [:create]
   end
 
   get    "sign_up",  to: "users#new"
