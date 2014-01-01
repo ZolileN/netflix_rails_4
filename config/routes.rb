@@ -15,4 +15,6 @@ Netflix::Application.routes.draw do
   delete "sign_out", to: "sessions#destroy"
   resources :users, only: [:create]
   resources :sessions, only: [:create]
+
+  get "my_queue", to: "queue_items#index"
 end
