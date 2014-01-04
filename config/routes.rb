@@ -13,7 +13,7 @@ Netflix::Application.routes.draw do
   get    "sign_up",  to: "users#new"
   get    "sign_in",  to: "sessions#new"
   delete "sign_out", to: "sessions#destroy"
-  resources :users, only: [:create]
+  resources :users, only: [:create, :show]
   resources :sessions, only: [:create]
 
   get "my_queue", to: "queue_items#index"

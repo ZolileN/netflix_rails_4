@@ -8,6 +8,19 @@ describe UsersController do
     end
   end
 
+  describe "GET show" do
+    it_behaves_like "requires sign in" do
+      let(:action) { get :show, id: 1 }
+    end
+
+    it "assigns the requested user to @user" do
+      user = FactoryGirl.create(:user)
+      set_current_user(user)
+      get :show, id: user.id
+      expect(assigns(:user)).to eq(user)
+    end
+  end
+
   describe "POST create" do
     context "with valid attributes" do
       it "saves the new user in the database" do
