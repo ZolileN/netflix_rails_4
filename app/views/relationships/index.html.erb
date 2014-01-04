@@ -1,0 +1,32 @@
+<section class="people">
+  <header>
+    <h2>People I Follow</h2>
+  </header>
+  <table class="table">
+    <thead>
+      <tr>
+        <th width="30%"></th>
+        <th width="20%">Videos in Queue</th>
+        <th width="20%">Followers</th>
+        <th width="30%">Unfollow</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @followed_users.each do |followed_user| %>
+        <tr>
+          <td>
+            <%= gravatar_for(followed_user) %>
+            <%= link_to followed_user.full_name, followed_user %>
+          </td>
+          <td class="extra-padding"><%= followed_user.queue_items.count %></td>
+          <td class="extra-padding"><%= followed_user.followers.count %></td>
+          <td class="extra-padding">
+            <%= link_to "", method: :post do %>
+              <i class="icon-remove"></i>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</section>

@@ -4,7 +4,7 @@
     <ul class="span4 clearflix">
       <li><%= link_to "Videos", home_path %></li>
       <li><%= link_to "My Queue", my_queue_path %></li>
-      <li><%= link_to "People", "#" %></li>
+      <li><%= link_to "People", people_path %></li>
     </ul>
     <%= form_tag search_videos_path, method: :post, class: "span5 for-search" do %>
       <%= text_field_tag "search_term", nil, placeholder: "Search for videos here", class: "search-query" %>
