@@ -47,4 +47,21 @@ describe QueueItem do
       expect(queue_item.rating).to be_nil
     end
   end
+
+  describe "#rating=" do
+    let(:alice) { FactoryGirl.create(:user) }
+    let(:video) { FactoryGirl.create(:video) }
+    let(:queue_item) { FactoryGirl.create(:queue_item, video: video, user: alice) }
+
+    it "updates the rating of the review if the review is present" do
+      review = FactoryGirl.create(:review, rating: 3, video: video, user: alice)
+      queue_item.rating = 4
+      expect(queue_item.reload.rating).to eq(4)
+    end
+
+    it "creates a review with the rating if the review is not present" do
+      queue_item.rating = 4
+      expect(queue_item.reload.rating).to eq(4)
+    end
+  end
 end
