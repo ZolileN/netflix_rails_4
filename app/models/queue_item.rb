@@ -8,4 +8,9 @@ class QueueItem < ActiveRecord::Base
   def category_name
     category.name
   end
+
+  def rating
+    review = Review.find_by(user_id: user.id, video_id: video.id)
+    review.rating if review
+  end
 end

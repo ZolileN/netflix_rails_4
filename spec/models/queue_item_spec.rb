@@ -29,4 +29,21 @@ describe QueueItem do
       expect(queue_item.category).to eq(comedies)
     end
   end
+
+  describe "#rating" do
+    it "returns the rating from the review when the review is present" do
+      alice = FactoryGirl.create(:user)
+      video = FactoryGirl.create(:video)
+      review = FactoryGirl.create(:review, rating: 4, video: video, user: alice)
+      queue_item = FactoryGirl.create(:queue_item, user: alice, video: video)
+      expect(queue_item.rating).to eq(4)
+    end
+
+    it "returns nil when the review is not present" do
+      alice = FactoryGirl.create(:user)
+      video = FactoryGirl.create(:video)
+      queue_item = FactoryGirl.create(:queue_item, user: alice, video: video)
+      expect(queue_item.rating).to be_nil
+    end
+  end
 end
