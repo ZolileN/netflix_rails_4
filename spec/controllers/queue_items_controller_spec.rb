@@ -23,7 +23,7 @@ describe QueueItemsController do
     before { set_current_user(alice) }
 
     it_behaves_like "requires sign in" do
-      let(:action) { get :index }
+      let(:action) { post :create, video_id: video.id }
     end
 
     it "redirects to the my_queue page" do
@@ -51,6 +51,36 @@ describe QueueItemsController do
       FactoryGirl.create(:queue_item, video: video, user: alice)
       expect{
         post :create, video_id: video.id
+      }.not_to change(QueueItem, :count)
+    end
+  end
+
+  describe "DELETE destroy" do
+    let(:alice) { FactoryGirl.create(:user) }
+    before { set_current_user(alice) }
+
+    it_behaves_like "requires sign in" do
+      let(:action) { delete :destroy, id: 3 }
+    end
+
+    it "redirects to the my_queue page" do
+      queue_item = FactoryGirl.create(:queue_item, user: alice)
+      delete :destroy, id: queue_item.id
+      expect(response).to redirect_to my_queue_path
+    end
+
+    it "deletes the queue_item" do
+      queue_item = FactoryGirl.create(:queue_item, user: alice)
+      expect{
+        delete :destroy, id: queue_item.id
+      }.to change(QueueItem, :count).by(-1)
+    end
+
+    it "does not delete the queue_item if queue_item isnot associated with the current user" do
+      bob = FactoryGirl.create(:user, email: "rails@example.com")
+      queue_item = FactoryGirl.create(:queue_item, user: bob)
+      expect{
+        delete :destroy, id: queue_item.id
       }.not_to change(QueueItem, :count)
     end
   end
