@@ -8,4 +8,8 @@ class User < ActiveRecord::Base
   has_many :queue_items
 
   before_create { self.email = email.downcase }
+
+  def queued_video?(video)
+    queue_items.map(&:video).include?(video)
+  end
 end
