@@ -17,5 +17,6 @@ Netflix::Application.routes.draw do
   resources :sessions, only: [:create]
 
   get "my_queue", to: "queue_items#index"
+  post "update_queue", to: "queue_items#update_queue"
   resources :queue_items, only: [:create, :destroy]
 end
