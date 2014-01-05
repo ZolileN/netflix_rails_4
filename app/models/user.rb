@@ -22,4 +22,8 @@ class User < ActiveRecord::Base
       queue_item.update_attribute(:position, index + 1)
     end
   end
+
+  def can_follow?(another_user)
+    !(followed_users.include?(another_user) || self == another_user)
+  end
 end

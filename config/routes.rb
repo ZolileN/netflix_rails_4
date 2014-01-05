@@ -21,4 +21,5 @@ Netflix::Application.routes.draw do
   resources :queue_items, only: [:create, :destroy]
 
   get "people", to: "relationships#index"
+  resources :relationships, only: [:create, :destroy]
 end

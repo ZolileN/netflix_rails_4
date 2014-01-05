@@ -5,7 +5,7 @@
         <header>
           <%= gravatar_for(@user) %>
           <h2><%= @user.full_name %>'s video collections (<%= @user.queue_items.count %>)</h2>
-          <button class="btn">Follow</button>
+          <%= link_to "Follow", relationships_path(followed_id: @user), method: :post, class: "btn" if current_user.can_follow?(@user) %>
         </header>
         <table class="table">
           <thead>
