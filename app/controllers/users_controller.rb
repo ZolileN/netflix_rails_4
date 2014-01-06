@@ -13,6 +13,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       sign_in @user
+      AppMailer.send_welcome_email(@user).deliver
       redirect_to home_path, notice: "You are signed in, enjoy!"
     else
       render :new
