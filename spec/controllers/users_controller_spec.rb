@@ -52,5 +52,24 @@ describe UsersController do
         expect(response).to render_template :new
       end
     end
+
+    context "sending welcome emails" do
+      after { ActionMailer::Base.deliveries.clear }
+
+      it "sends out email to the new user with valid attributes" do
+        post :create, user: FactoryGirl.attributes_for(:user, email: "alice@example.com")
+        expect(ActionMailer::Base.deliveries.last.to).to eq(["alice@example.com"])
+      end
+
+      it "sends out email containing the new user's full name with valid attributes" do
+        post :create, user: FactoryGirl.attributes_for(:user, full_name: "Joe Smith")
+        expect(ActionMailer::Base.deliveries.last.body).to include("Joe Smith")
+      end
+
+      it "does not send out email with invalid attributes" do
+        post :create, user: FactoryGirl.attributes_for(:user, full_name: nil)
+        expect(ActionMailer::Base.deliveries).to be_empty
+      end
+    end
   end
 end
