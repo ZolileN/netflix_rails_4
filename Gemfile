@@ -17,6 +17,7 @@ gem 'jbuilder', '~> 1.2'
 
 group :development do
   gem 'pry'
+  gem 'pry-remote'
   gem 'pry-rails'
   gem 'quiet_assets'
   gem 'thin'

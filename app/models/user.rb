@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
   has_many :followers, through: :reverse_relationships, source: :follower
 
   before_create { self.email = email.downcase }
+  before_create :generate_token
 
   def queued_video?(video)
     queue_items.map(&:video).include?(video)
@@ -25,5 +26,9 @@ class User < ActiveRecord::Base
 
   def can_follow?(another_user)
     !(followed_users.include?(another_user) || self == another_user)
+  end
+
+  def generate_token
+    self.token = SecureRandom.urlsafe_base64
   end
 end

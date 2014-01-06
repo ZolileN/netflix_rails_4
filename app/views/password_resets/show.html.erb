@@ -1,0 +1,19 @@
+<section class="reset_password container">
+  <div class="row">
+    <div class="span10 offset1">
+      <%= form_tag password_resets_path, method: :post %>
+        <header>
+          <h1>Reset Your Password</h1>
+        </header>
+        <fieldset>
+          <%= label_tag :password, "New Password" %>
+          <%= password_field_tag :password %>
+          <%= hidden_field_tag :token, @token %>
+        </fieldset>
+        <fieldset class="action">
+          <%= submit_tag "Reset Password", class: "btn" %>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</section>

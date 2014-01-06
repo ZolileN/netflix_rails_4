@@ -1,0 +1,19 @@
+<section class="forgot_password container">
+  <div class="row">
+    <div class="span10 offset1">
+      <%= form_tag forgot_passwords_path, method: :post, class: "sign_in" %>
+        <header>
+          <h1>Forgot Password?</h1>
+          <p>We will send you an email with a link that you can use to reset your password.</p>
+        </header>
+        <fieldset>
+          <%= label_tag :email, "Email Address" %>
+          <%= email_field_tag :email %>
+        </fieldset>
+        <fieldset>
+          <%= submit_tag "Send Email", class: "btn" %>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</section>

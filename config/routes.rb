@@ -22,4 +22,11 @@ Netflix::Application.routes.draw do
 
   get "people", to: "relationships#index"
   resources :relationships, only: [:create, :destroy]
+
+  get "forgot_password", to: "forgot_passwords#new"
+  get "forgot_password_confirmation", to: "forgot_passwords#confirm"
+  resources :forgot_passwords, only: [:create]
+
+  get "expired_token", to: "password_resets#expired_token"
+  resources :password_resets, only: [:show, :create]
 end
