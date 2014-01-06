@@ -30,16 +30,16 @@ feature "User interacts with queue" do
 
   def add_video_to_queue(video)
     visit home_path
-    find("a[href='/videos/#{video.id}']").click
+    click_video_on_home_page(video)
     click_link "+ My Queue"
   end
 
   def expect_video_to_be_in_queue(video)
-    page.should have_content(video.title)
+    expect(page).to have_content(video.title)
   end
 
   def expect_link_not_to_be_seen(link_text)
-    page.should_not have_content(link_text)
+    expect(page).not_to have_content(link_text)
   end
 
   def set_video_position(video, position)
