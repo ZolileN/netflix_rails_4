@@ -37,6 +37,7 @@ group :test do
   gem "shoulda-matchers", "~> 2.4.0"
   gem 'database_cleaner', '~> 1.2.0'
   gem "capybara", "~> 2.2.0"
+  gem "capybara-email", "~> 2.2.1"
 end
 
 group :doc do
