@@ -13,8 +13,7 @@ class PasswordResetsController < ApplicationController
     if user
       user.generate_token
       user.update_attributes!(password: params[:password], password_confirmation: params[:password])
-      flash[:success] = "Your password has been changed. Please sign in."
-      redirect_to sign_in_path
+      redirect_to sign_in_path, success: "Your password has been changed. Please sign in."
     else
       redirect_to expired_token_path
     end

@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 feature "User resets password" do
+  after { ActionMailer::Base.deliveries.clear }
+
   scenario "user successfully resets the password" do
     alice = FactoryGirl.create(:user, password: "old_password", password_confirmation: "old_password")
 
