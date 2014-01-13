@@ -17,7 +17,7 @@ class QueueItem < ActiveRecord::Base
 
   def rating=(new_rating)
     if review
-      review.update_attribute(:rating, new_rating)
+      review.update(:rating, new_rating)
     else
       review = Review.new(rating: new_rating, video: video, user: user)
       review.save(validate: false)
